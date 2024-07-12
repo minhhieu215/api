@@ -1,0 +1,5 @@
+Upload pet , delete pet , update pet , 
+
+/upload
+/delete
+/update 
