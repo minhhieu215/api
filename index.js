@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(fileUpload())
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '100.20.92.101',
     user: 'root',
     password: 'Minhhieu12345',
     database: 'pet'
