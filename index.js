@@ -81,7 +81,13 @@ app.get('/animals/:id', (req, res) => {
 
 })
 app.get('/', (req, res) => {
-    res.send("FIND YOUR DOG")
+    res.sendFile('./index.html')
+})
+app.get('/create', (req, res) => {
+    res.sendFile('./create.html')
+})
+app.get('/search', (req, res) => {
+    res.sendFile('./search.html')
 })
 app.listen(port, () => {
     console.log("APP IS RUNNING ON PORT ", port)
