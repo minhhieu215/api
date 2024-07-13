@@ -9,11 +9,14 @@ const fileUpload = require('express-fileupload')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(fileUpload())
+
+require('dotenv').config();
+
 const connection = mysql.createConnection({
-    host: '13.228.225.19',
-    user: 'root',
-    password: 'Minhhieu12345',
-    database: 'pet'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DBNAME
 })
 connection.connect(err => { if (err) throw err; });
 //handle cors to fetch api possible
