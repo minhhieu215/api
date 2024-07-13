@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 const path = require('path')
 const helmet = require('helmet')
 const mysql = require('mysql')
@@ -28,14 +28,12 @@ app.use(function (req, res, next) {
 });
 //
 app.post('/upload', (req, res) => {
-
     console.log("UPLOADING")
     const pet = req.body;
     const queryString = `INSERT INTO petislife (petType, petName, city,petImg)
     VALUE('${pet.petType}' ,'${pet.petName}' ,'${pet.city}' ,'${req.body.petImg}');`
     connection.query(queryString, (err, data) => {
         if (err) throw err;
-
     })
     res.redirect('back')
 })
@@ -59,6 +57,7 @@ app.get('/animals', (req, res) => {
         queryString = `SELECT * from petislife where isDeleted = 0 ;`
     }
     connection.query(queryString, (err, data) => {
+        if (err) throw err;
         res.json(data)
     })
 
