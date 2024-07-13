@@ -80,7 +80,9 @@ app.get('/animals/:id', (req, res) => {
     })
 
 })
-
+app.get('/', (req, res) => {
+    res.send("HELLO")
+})
 app.listen(port, () => {
     console.log("APP IS RUNNING ON PORT ", port)
 });
